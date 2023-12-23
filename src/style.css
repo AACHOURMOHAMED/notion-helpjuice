@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f5f5;
+}
+
+nav img {
+  width: 25px;
+  height: 25px;
+}
+
+.input {
+  max-width: 100%;
+  width: 100%;
+  white-space: pre-wrap;
+  padding: 0.5rem 0;
+  word-break: break-word;
+  caret-color: #37352f;
+  color: #222;
+  cursor: text;
+  position: relative;
+}
+
+.input:focus {
+  outline: none;
+}
+
+[contenteditable]:empty::before {
+  content: attr(placeholder);
+  color: #37352f80;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6e747f;
+  margin-bottom: 0.5rem;
+}
+
+.popup {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 24rem;
+  height: 25rem;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 0 20px 20px 20px rgba(158, 158, 158, 0.09);
+  overflow-y: auto;
+  padding: 0;
+}
+
+.popup::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.popup::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.popup::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.popup::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.popup__header {
+  padding: 1rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.popup__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.popup__item {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.popup__item:hover,
+.popup__item:focus,
+.popup__item:active {
+  background-color: #f5f5f5;
+  outline: none;
+}
+
+.popup__item div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.popup__item p {
+  color: #6e747f;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.toggle-mode {
+  position: fixed;
+  top: 2rem;
+  right: 3rem;
+}
+
+.toggle-mode__icon {
+  width: 50px;
+  cursor: pointer;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.toggle-mode__icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.sun {
+  display: none;
+}
+
+.h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.h4 {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.h5 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.h6 {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.hidden {
+  display: none;
+}
