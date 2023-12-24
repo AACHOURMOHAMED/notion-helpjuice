@@ -24,6 +24,12 @@ const menuItems = [
     type: "p",
   },
   {
+    title: "Image",
+    value: "image",
+    description: "Image block",
+    type: "img",
+  },
+  {
     title: "Blockquote",
     value: "blockquote",
     description: "Quoted text",
@@ -40,12 +46,6 @@ const menuItems = [
     value: "numberedlist",
     description: "Numbered list",
     type: "ol",
-  },
-  {
-    title: "Image",
-    value: "image",
-    description: "Image block",
-    type: "img",
   },
 ];
 
