@@ -11,6 +11,42 @@ const menuItems = [
     description: "Medium Section heading",
     type: "h2",
   },
+  {
+    title: "Heading 3",
+    value: "heading3",
+    description: "Small Section heading",
+    type: "h3",
+  },
+  {
+    title: "Paragraph",
+    value: "paragraph",
+    description: "Text block",
+    type: "p",
+  },
+  {
+    title: "Blockquote",
+    value: "blockquote",
+    description: "Quoted text",
+    type: "blockquote",
+  },
+  {
+    title: "List",
+    value: "list",
+    description: "Bulleted list",
+    type: "ul",
+  },
+  {
+    title: "Numbered List",
+    value: "numberedlist",
+    description: "Numbered list",
+    type: "ol",
+  },
+  {
+    title: "Image",
+    value: "image",
+    description: "Image block",
+    type: "img",
+  },
 ];
 
 export default menuItems;

@@ -4,31 +4,44 @@ import createBlocks from "./createBlocks.js";
 let isOpen = false;
 let activeIndex = -1;
 
-/**
- * Creates a menu block based on the provided input.
- * @param {HTMLElement} currentInput - The input element to attach the menu to.
- */
-const createMenuBlock = (currentInput) => {
-  if (isOpen) return;
+const createPopupElement = () => {
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
 
-  const popupHtml = `
-    <div class="popup">
-      <div class="popup__header">
-        <h4>Add blocks</h4>
-        <p class="subtitle">Keep typing to filter, or escape to exit</p>
-      </div>
-      <div class="popup__list" role="listitem">
-        ${menuItems.map((option) => createBlocks(option)).join("")}
-      </div>
-    </div>`;
+  const header = document.createElement('div');
+  header.classList.add('popup__header');
+  header.innerHTML = `
+    <h4>Add blocks</h4>
+    <p class="subtitle">Keep typing to filter, or escape to exit</p>
+  `;
 
-  currentInput.insertAdjacentHTML("afterend", popupHtml);
+  const list = document.createElement('div');
+  list.classList.add('popup__list');
+  list.setAttribute('role', 'listitem');
+
+  menuItems.forEach(option => {
+    const block = createBlocks(option);
+    list.appendChild(block); 
+  });
+
+  popup.appendChild(header);
+  popup.appendChild(list);
+
+  return popup;
+};
+
+const attachPopupToInput = (currentInput, popup) => {
+  currentInput.parentNode.appendChild(popup); // Append the popup to the parent of the input
   isOpen = true;
 };
 
-/**
- * Removes the menu block from the DOM.
- */
+const createMenuBlock = (currentInput) => {
+  if (isOpen) return;
+
+  const popupElement = createPopupElement();
+  attachPopupToInput(currentInput, popupElement);
+};
+
 const removeMenuBlock = () => {
   const popup = document.querySelector(".popup");
   if (popup) {
@@ -37,7 +50,7 @@ const removeMenuBlock = () => {
   }
 };
 
-document.addEventListener("keydown", (e) => {
+const handleKeyEvents = (e) => {
   const popOptions = [...document.querySelectorAll(".popup__item")];
   if (!isOpen) return;
 
@@ -52,11 +65,14 @@ document.addEventListener("keydown", (e) => {
   }
 
   if (e.key === "Escape" || (e.key === " " && e.repeat)) removeMenuBlock();
-});
+};
 
-document.addEventListener("click", (e) => {
+const handleDocumentClick = (e) => {
   if (e.target.closest(".popup")) return;
   removeMenuBlock();
-});
+};
+
+document.addEventListener("keydown", handleKeyEvents);
+document.addEventListener("click", handleDocumentClick);
 
 export { createMenuBlock, removeMenuBlock };
